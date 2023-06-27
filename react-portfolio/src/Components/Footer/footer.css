@@ -1,0 +1,10 @@
+#social-icons {
+	/* padding: 4rem auto; */
+	margin-top: auto !important;
+	margin-bottom: auto !important;
+	min-height: 15vh !important;
+	align-content: center;
+}
+#social-icons :focus {
+	background-color: white;
+}
