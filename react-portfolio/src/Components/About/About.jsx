@@ -5,39 +5,46 @@ import profile from "./Images/peterkamau.jpeg"
 
 const About = () => {
 	const toRotate = ["Front-end Developer", "Web-designer", "UI/UX designer"] //words to be rotated
-	const [loopNum, setloopNum] = useState(0) //index of word to be rotated
+	const [loopNum, setLoopNum] = useState(0) //index of word to be rotated
 	const [deleting, setDeleting] = useState(false) //as we start by typing the word
 	const [currentText, setCurrentText] = useState("")
 	const [delta, setDelta] = useState(300 - Math.random() * 100) //freq of displaying each word
 	const period = 2000 //delay time
-	useEffect(
-		() => {
-			let ticker = setInterval(() => {
-				tick()
-			}, delta)
-			return () => {
-				clearInterval(ticker)
-			}
-		},
-		[currentText] //runs whenever text gets updated
-	)
+
+	useEffect(() => {
+		let ticker = setInterval(() => {
+			tick()
+		}, delta)
+
+		return () => {
+			clearInterval(ticker)
+		}
+	}, [text])
+
 	const tick = () => {
 		let i = loopNum % toRotate.length
 		let fullText = toRotate[i]
 		let updatedText = deleting
-			? fullText.substring(0, currentText.length - 1)
-			: fullText.substring(0, currentText.length + 1)
+			? fullText.substring(0, text.length - 1)
+			: fullText.substring(0, text.length + 1)
+
 		setCurrentText(updatedText)
+
 		if (deleting) {
-			setDelta((prevState) => prevState / 2)
+			setDelta((prevDelta) => prevDelta / 2)
 		}
+
 		if (!deleting && updatedText === fullText) {
 			setDeleting(true)
+			setIndex((prevIndex) => prevIndex - 1)
 			setDelta(period)
 		} else if (deleting && updatedText === "") {
 			setDeleting(false)
-			setloopNum(loopNum + 1)
+			setLoopNum(loopNum + 1)
+			setIndex(1)
 			setDelta(500)
+		} else {
+			setIndex((prevIndex) => prevIndex + 1)
 		}
 	}
 
