@@ -1,32 +1,33 @@
 import { Row, TabContainer, Container, Col, Nav, Tab } from "react-bootstrap"
-import meme from "../Projects/meme-gen.png"
+
 import Tenzie from "../Projects/tenzie-game.png"
 import Notes from "../Projects/notes.png"
+import Peter from "../About/Images/peterkamau.jpeg"
 
 import ProjectsCard from "../ProjectsCard"
 
 export const Project = () => {
 	const projects = [
 		{
-			title: "Tenzie game",
+			title: "My Portfolio",
 			description:
-				"A dynamic and interactive web-based game developed using JavaScript and React.js. The Tenzie Game showcases my ability to create engaging user experiences and implement complex game logic. It's a testament to my skills in creating applications that are not only functional but also fun and engaging for users.",
-			imgUrl: Tenzie,
-			live: "https://mellow-pixie-fab490.netlify.app/",
+				"Personal portfolio crafted with React, Bootstrap, and custom CSS, highlighting my proficiency in modern web development.",
+			imgUrl: Peter,
+			live: "https://my-portfolio-seven-nu-86.vercel.app/",
 		},
 		{
-			title: "Meme Generator",
+			title: "Tenzie Game",
 			description:
 				"A creative and entertaining web application that allows users to generate their own memes. Built with React.js, the Meme Generator showcases my skills in working with APIs and manipulating images. ",
-			imgUrl: meme,
+			imgUrl: Tenzie,
 			live: "https://mellow-pixie-fab490.netlify.app/",
 		},
 		{
 			title: "Notes App",
 			description:
-				"A practical and user-friendly application designed to help users keep track of their tasks and ideas. Developed using HTML, CSS, and JavaScript, the Note App demonstrates my ability to create applications that solve real-world problems. It features a clean, intuitive interface and robust functionality, including the ability to add, edit, and delete notes.",
+				"Developed a user-friendly notes app using React, JS, and CSS, showcasing my ability to create practical, interactive applications",
 			imgUrl: Notes,
-			live: "https://mellow-pixie-fab490.netlify.app/",
+			live: "https://my-notes-app-tau.vercel.app/",
 		},
 	]
 	return (
